@@ -174,6 +174,8 @@ func Open(path string, mode os.FileMode, options *Options) (*DB, error) {
 				return nil, fmt.Errorf("meta0 error: %s", err)
 			}
 			db.pageSize = int(m.pageSize)
+		} else {
+			return nil, fmt.Errorf("init error: %s", err)
 		}
 	}
 
